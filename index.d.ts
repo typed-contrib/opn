@@ -14,26 +14,12 @@ import * as child_process from "child_process";
  * useful if you'd like to attach custom event listeners or perform
  * other operations directly on the spawned process.
  * 
- * Opens in the default app for the file type. Eg. URLs opens in your default browser.
- * 
  * @param target - The thing you want to open. Can be a URL, file, or executable.
+ * @param [options] - Options for the child process.
  */
-declare function opn(target: string): opn.Promise<child_process.ChildProcess>;
+declare function opn(target: string, options?: opn.Options): opn.Promise<child_process.ChildProcess>;
 
-/**
- * Uses the command open on OS X, start on Windows and xdg-open on other platforms.
- * Returns a promise for the spawned child process. 
- * 
- * You'd normally not need to use this for anything, but it can be
- * useful if you'd like to attach custom event listeners or perform
- * other operations directly on the spawned process.
- * 
- * @param target - The thing you want to open. Can be a URL, file, or executable.
- * @param options - Options for the child process.
- */
-declare function opn(target: string, options: opn.Options): opn.Promise<child_process.ChildProcess>;
-
-declare module opn {
+declare namespace opn {
     
     /** opn Options Interface */
     export interface Options {
